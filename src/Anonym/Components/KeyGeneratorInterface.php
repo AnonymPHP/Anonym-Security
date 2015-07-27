@@ -10,14 +10,16 @@
     namespace Anonym\Components\Security;
 
     /**
-     * Class SecurityKeyGenerator
+     * Interface KeyGeneratorInterface
      * @package Anonym\Components\Security
      */
-    class SecurityKeyGenerator
+    interface KeyGeneratorInterface
     {
 
-        public function __construct(){
-
-        }
-
+        /**
+         * Güvenlik kodunu oluşturur
+         *
+         * @return string
+         */
+        public function generate();
     }
