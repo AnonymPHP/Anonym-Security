@@ -1,0 +1,32 @@
+{
+  "name": "anonym-php/anonym-security",
+  "type": "library",
+  "keywords": [
+    "Security"
+  ],
+  "homepage": "https://gemframework.com",
+  "description": "AnonymFramework Security Component",
+  "license": "MIT",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git://github.com/AnonymPHP/Anonym-Security.git"
+    }
+  ],
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Vahit Şerif Sağlam",
+      "email": "vahit.serif119@gmail.com",
+      "homepage": "http://www.gemframework.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+  },
+  "autoload": {
+    "psr-4": {
+      "Anonym\\Components\\Security\\": "src/Anonym/Components/"
+    }
+  }
+}
