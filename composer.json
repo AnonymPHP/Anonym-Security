@@ -23,6 +23,7 @@
   ],
   "require": {
     "php": ">=5.4.0",
+    "anonym-php/anonym-session":"dev-master"
   },
   "autoload": {
     "psr-4": {
