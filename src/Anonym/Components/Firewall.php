@@ -8,9 +8,36 @@
      */
 
     namespace Anonym\Components\Security;
+    use Anonym\Components\Security\Exception\FirewallException;
+    use M6Web\Component\Firewall\Firewall as ParentFirewall;
 
-
-    class Firewall
+    /**
+     * Class Firewall
+     * @package Anonym\Components\Security
+     */
+    class Firewall extends ParentFirewall
     {
 
+        /**
+         * sınıfı başlatır
+         */
+        public function __construct(){
+            parent::__construct();
+        }
+
+        /**
+         * Yakalama işlemini yapar veya exception oluşturur
+         *
+         * @return bool
+         */
+        public function handle(){
+            return parent::handle([$this, 'getException']);
+        }
+
+        /**
+         * Exception oluşturur
+         */
+        public function getException(){
+            throw new FirewallException('Giriş yaptığınız adres, güvenlik duvarımıza takılmıştır.');
+        }
     }

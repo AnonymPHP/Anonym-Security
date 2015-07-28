@@ -24,7 +24,8 @@
   "require-dev": {
     "php": ">=5.4.0",
     "anonym-php/anonym-session": "dev-master",
-    "anonym-php/anonym-httpclient": "dev-master"
+    "anonym-php/anonym-httpclient": "dev-master",
+    "m6web/firewall": "dev-master"
   },
   "autoload": {
     "psr-4": {
