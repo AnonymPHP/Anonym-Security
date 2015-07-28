@@ -10,8 +10,13 @@
     namespace Anonym\Components\Security;
     use Anonym\Components\HttpClient\ServerHttpHeaders;
     use Anonym\Components\HttpClient\Response;
+    use Anonym\Components\Security\SecurityCheckerInterface;
 
-    class AccessSecurity extends ServerHttpHeaders
+    /**
+     * Class AccessSecurity
+     * @package Anonym\Components\Security
+     */
+    class AccessSecurity extends ServerHttpHeaders implements SecurityCheckerInterface
     {
         /**
          * Ayarları tutar
