@@ -12,7 +12,19 @@
      * Class Register
      * @package Anonym\Components\Security\Authentication
      */
-    class Register extends Authentication
+    class Register extends Authentication implements RegisterInterface
     {
 
+        /**
+         * Kullanıcı kayıt işlemini yapar
+         *
+         * @param array $post
+         * @return mixed
+         */
+        public function register(array $post = [])
+        {
+
+        }
+
     }
+

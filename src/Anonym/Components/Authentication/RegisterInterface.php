@@ -16,7 +16,6 @@
     interface RegisterInterface
     {
 
-
         /**
          * Kullanıcı kayıt işlemini yapar
          *
