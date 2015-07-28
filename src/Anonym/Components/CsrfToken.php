@@ -12,13 +12,12 @@
     use Anonym\Components\Session\SessionInterface;
     use Anonym\Components\HttpClient\Input;
     use Anonym\Components\Security\Exception\CsrfTokenMatchException;
-    use Anonym\Components\Security\SecurityCheckerInterface;
-
+    use Anonym\Components\Security\CsrfTokenInterface;
     /**
      * Class CsrfToken
      * @package Anonym\Components\Security
      */
-    class CsrfToken implements SecurityCheckerInterface
+    class CsrfToken implements CsrfTokenInterface
     {
         /**
          * Form gönderisinde aranacak değer
