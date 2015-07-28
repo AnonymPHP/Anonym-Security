@@ -7,7 +7,7 @@
      *
      */
 
-    namespace Anonym\Components\Security;
+    namespace Anonym\Components\Security\Authentication;
 
     use Anonym\Components\Cookie\Cookie;
     use Anonym\Components\Cookie\CookieInterface;

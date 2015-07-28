@@ -7,7 +7,7 @@
      *
      */
 
-    namespace Anonym\Components\Security;
+    namespace Anonym\Components\Security\Authentication;
 
     /**
      * Class AuthenticationLoginObject

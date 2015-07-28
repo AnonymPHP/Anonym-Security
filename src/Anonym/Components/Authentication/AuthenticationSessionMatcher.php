@@ -7,7 +7,9 @@
      *
      */
 
-    namespace Anonym\Components\Security;
+    namespace Anonym\Components\Security\Authentication;
+    use Anonym\Components\Security\Authentication\AuthenticationMatcherInterface;
+    use Anonym\Components\Security\Authentication\Authentication;
 
     /**
      * Session ile kullanıcının giriş yapıp yapmadığını kontrol eder
@@ -21,16 +23,17 @@
         /**
          * Kullanıcının giriş yapıp yapmadığını session a bakarak kontrol eder
          *
-         * @return bool
+         * @return bool|AuthenticationLoginObject
          */
         public function match(){
 
             $session = $this->getSession();
             $key = static::USER_SESSION;
-
             if($session->has($key)){
 
-                return true;
+                if($value = $session->get($key) instanceof AuthenticationLoginObject){
+                    return $value;
+                }
             }else{
                 return false;
             }

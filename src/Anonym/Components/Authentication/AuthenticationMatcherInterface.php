@@ -7,7 +7,7 @@
      *
      */
 
-    namespace Anonym\Components\Security;
+    namespace Anonym\Components\Security\Authentication;
 
     /**
      * Interface AuthenticationMatcherInterface
@@ -19,7 +19,7 @@
         /**
          * Kontrolu yapar ve girişin yapılıp yapılmadığını kontrol eder
          *
-         * @return bool
+         * @return mixed
          */
         public function match();
     }
