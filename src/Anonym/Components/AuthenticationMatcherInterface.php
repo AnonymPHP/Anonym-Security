@@ -9,8 +9,19 @@
 
     namespace Anonym\Components\Security;
 
-
+    /**
+     * Interface AuthenticationMatcherInterface
+     * @package Anonym\Components\Security
+     */
     interface AuthenticationMatcherInterface
     {
 
+        /**
+         * Kontrolu yapar ve girişin yapılıp yapılmadığını kontrol eder
+         *
+         * @return bool
+         */
+        public function match();
     }
+
+
