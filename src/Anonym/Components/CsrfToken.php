@@ -45,6 +45,7 @@
         public function __construct()
         {
             $this->useDefaultValues();
+            $this->getSession()->set('tokenName', $this->getFormFieldName());
         }
 
         /**
@@ -55,7 +56,7 @@
          */
         public function run()
         {
-            if ($this->getSession()->has($this->getFormFieldName())) {
+            if ($this->getSession()->has('tokenName')) {
                 $this->check();
             } else {
                 return false;

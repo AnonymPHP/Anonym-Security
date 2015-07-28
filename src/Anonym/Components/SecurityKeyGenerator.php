@@ -8,13 +8,13 @@
      */
 
     namespace Anonym\Components\Security;
-    use Anonym\Components\Crypt\SecurityKeyGenerator as Parent;
+    use Anonym\Components\Crypt\SecurityKeyGenerator as ParentGenerator;
 
     /**
      * Class SecurityKeyGenerator
      * @package Anonym\Components\Security
      */
-    class SecurityKeyGenerator extends Parent implements KeyGeneratorInterface
+    class SecurityKeyGenerator extends ParentGenerator implements KeyGeneratorInterface
     {
         /**
          * Güvenlik kodunu oluşturur
