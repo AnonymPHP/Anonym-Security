@@ -43,6 +43,13 @@
         private $db;
 
 
+        /**
+         * Tablo ayarlarını tutar
+         *
+         * @var array
+         */
+        private $tables;
+
         const USER_SESSION = 'AnonymFrameworkUser';
 
         /**
@@ -110,4 +117,25 @@
 
             return $this;
         }
+
+        /**
+         * @return array
+         */
+        public function getTables()
+        {
+            return $this->tables;
+        }
+
+        /**
+         * @param array $tables
+         * @return Authentication
+         */
+        public function setTables($tables)
+        {
+            $this->tables = $tables;
+
+            return $this;
+        }
+
+
     }

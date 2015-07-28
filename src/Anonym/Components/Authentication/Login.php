@@ -16,7 +16,6 @@
     class Login extends Authentication implements LoginInterface
     {
 
-
         /**
          * @param AuthenticationDatabaseReadInterface $db
          */
@@ -36,6 +35,10 @@
          */
         public function login($username = '', $password = '', $remember = false)
         {
+            $db = $this->getDb();
+            $login = $db->read('users', function(){
+
+            });
 
         }
 
