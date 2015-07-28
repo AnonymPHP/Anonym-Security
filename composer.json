@@ -21,9 +21,10 @@
       "homepage": "http://www.gemframework.com"
     }
   ],
-  "require": {
+  "require-dev": {
     "php": ">=5.4.0",
-    "anonym-php/anonym-session":"dev-master"
+    "anonym-php/anonym-session": "dev-master",
+    "anonym-php/anonym-httpclient": "dev-master"
   },
   "autoload": {
     "psr-4": {

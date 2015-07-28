@@ -8,20 +8,19 @@
      */
 
     namespace Anonym\Components\Security;
-    use Anonym\Components\Crypt\SecurityKeyGenerator as Parent;
+    use Exception;
 
     /**
-     * Class SecurityKeyGenerator
+     * Class CsrfTokenMatchException
      * @package Anonym\Components\Security
      */
-    class SecurityKeyGenerator extends Parent implements KeyGeneratorInterface
+    class CsrfTokenMatchException extends Exception
     {
         /**
-         * Güvenlik kodunu oluşturur
-         *
-         * @return string
+         * @param string $message
          */
-        public function generate(){
-            return $this->create();
+        public function __construct($message = '')
+        {
+            $this->message = $message;
         }
     }
