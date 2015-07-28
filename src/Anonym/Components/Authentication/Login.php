@@ -17,11 +17,16 @@
     {
 
         /**
+         * Sınıfı başlatır ve tablo yapılandırmasını yapar
+         *
          * @param AuthenticationDatabaseReadInterface $db
+         * @param array $tables
          */
-        public function __construct(AuthenticationDatabaseReadInterface $db){
+        public function __construct(AuthenticationDatabaseReadInterface $db, array $tables = [])
+        {
             parent::__construct();
             $this->setDb($db);
+            $this->setTables($tables);
         }
 
         /**
@@ -31,15 +36,61 @@
          * @param string $username
          * @param string $password
          * @param bool|false $remember
-         * @return bool
+         * @return bool|AuthenticationLoginObject
          */
         public function login($username = '', $password = '', $remember = false)
         {
             $db = $this->getDb();
-            $login = $db->read('users', function(){
+            $table = $this->getTables();
+            list($userColumnName, $passColumnName) = $table['login'];
+            $getTables = $table['select'];
+            $login = $db->read(
+                $table['table'],
+                function ($mode) use (
+                    $userColumnName,
+                    $passColumnName,
+                    $username,
+                    $password,
+                    $getTables
+                ) {
+                    return $mode->where(
+                        [
+                            [$userColumnName, '=', $username],
+                            [$passColumnName, '=', $password],
+                        ]
+                    )->select($getTables)->build();
+                }
+            );
 
-            });
+            if ($login) {
+                if ($login->rowCount()) {
+                    $login = (array)$login->fetch();
+                    if (isset($table['role'])) {
+                        $userid = $login[$userColumnName];
+                        $role = $db->read($table['role'],
+                            function ($mode) use ($userid, $userColumnName) {
+                                return $mode->where(
+                                    [[$userColumnName, '=', $userid]]
+                                )->select('role_name')->build();});
 
+                        if($role->rowCount()){
+                           $role = (array) $role->fetch();
+                            $login['role'] = $role['role_name'];
+                        }
+                    }
+
+                    $login =  new AuthenticationLoginObject($login);
+                    $this->getSession()->set(static::USER_SESSION, $login);
+
+                    if($remember){
+                        $this->getCookie()->set(static::USER_SESSION, serialize($login));
+                    }
+
+                    return $login;
+                }
+            }
+
+            return false;
         }
 
         /**
@@ -49,7 +100,8 @@
          * @param $params
          * @return mixed
          */
-        public function __call($method, $params){
+        public function __call($method, $params)
+        {
             return call_user_func_array([$this->getDb(), $method], $params);
         }
 
