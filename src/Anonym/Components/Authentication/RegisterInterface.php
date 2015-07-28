@@ -16,4 +16,12 @@
     interface RegisterInterface
     {
 
+
+        /**
+         * Kullanıcı kayıt işlemini yapar
+         *
+         * @param array $post
+         * @return mixed
+         */
+        public function register(array $post = []);
     }
