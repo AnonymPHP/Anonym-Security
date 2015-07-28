@@ -17,13 +17,38 @@
     {
 
         /**
+         * Değiştirilecek tagları döndürür
+         *
+         * @var array
+         */
+        private $replaceTags = [
+
+        ];
+
+        /**
+         *  Sınıfı başlatır
+         */
+        public function __construct(){
+
+            $this->setReplaceTags([
+                '"',
+                "'",
+                "<",
+                ">",
+                "&lt;"
+                ,"3C"
+                ,"3E"
+            ]);
+        }
+
+        /**
          * xss sorgularından temizler
          *
          * @param string $data
          * @return mixed|string
          * @throws \Exception
          */
-        public static function xssProtection($data = '')
+        public function xssProtection($data = '')
         {
 
             $data = str_replace(['"', "'", "<", ">", "&lt;","3C","3E","22","27"], '', $data);
@@ -49,7 +74,7 @@
          * @param string $mail
          * @return mixed
          */
-        public static function validateEmail($mail = '')
+        public  function validateEmail($mail = '')
         {
 
             return filter_var($mail, FILTER_VALIDATE_EMAIL);
@@ -61,9 +86,28 @@
          * @param string $url
          * @return mixed
          */
-        public static function validateUrl($url = '')
+        public  function validateUrl($url = '')
         {
 
             return filter_var($url, FILTER_VALIDATE_URL);
+        }
+
+        /**
+         * @return array
+         */
+        public function getReplaceTags()
+        {
+            return $this->replaceTags;
+        }
+
+        /**
+         * @param array $replaceTags
+         * @return Security
+         */
+        public function setReplaceTags($replaceTags)
+        {
+            $this->replaceTags = $replaceTags;
+
+            return $this;
         }
     }

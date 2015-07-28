@@ -11,6 +11,7 @@
     use Anonym\Components\Session\Session;
     use Anonym\Components\Session\SessionInterface;
     use Anonym\Components\HttpClient\Input;
+    use Anonym\Components\Security\Exception\CsrfTokenMatchException;
     use Anonym\Components\Security\SecurityCheckerInterface;
 
     /**
