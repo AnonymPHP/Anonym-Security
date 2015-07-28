@@ -38,7 +38,6 @@
          * Kullanıcı kayıt işlemini yapar
          *
          * @param array $post
-         * @throws RegisterArgumentsException
          * @return mixed
          */
         public function register(array $post = [])
@@ -50,10 +49,10 @@
             if (count($registerParams) === count($post)) {
                 $inputValues = array_values($post);
                 if (count(array_diff($inputValues, $registerParams)) > 0) {
-                    throw new RegisterArgumentsException('Register parametreleriniz %s dosyasındakilerle aynı olmalıdır.',self::USER_FILE);
+                    throw new RegisterArgumentsException(sprintf('Register parametreleriniz %s dosyasındakilerle aynı olmalıdır.',self::USER_FILE));
                 } else {
                     $db = $this->getDb();
-                    $insert = $db->insert($tableName, function ($mode) use ($input) {
+                    $insert = $db->insert($tableName, function ($mode) use ($post) {
                         $mode->set($input)
                             ->run();
                     });
