@@ -13,7 +13,7 @@
      * Interface FirewallInterface
      * @package Anonym\Components\Security
      */
-    interface FirewallInterface
+    interface FirewallCheckerInterface
     {
 
         /**
