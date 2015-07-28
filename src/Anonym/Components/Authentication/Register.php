@@ -15,6 +15,12 @@
     class Register extends Authentication implements RegisterInterface
     {
 
+        public function __construct($db, array $tables = [])
+        {
+            $this->setTables($tables);
+
+        }
+
         /**
          * Kullanıcı kayıt işlemini yapar
          *

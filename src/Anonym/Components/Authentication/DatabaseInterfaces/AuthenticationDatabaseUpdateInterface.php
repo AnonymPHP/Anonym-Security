@@ -7,21 +7,22 @@
      *
      */
 
-    namespace Anonym\Components\Security\Authentication;
+    namespace Anonym\Components\Security\Authentication\DatabaseInterfaces;
 
     /**
-     * Interface AuthenticationDatabaseReadInterface
+     * Interface AuthenticationDatabaseUpdateInterface
      * @package Anonym\Components\Security\Authentication
      */
-    interface AuthenticationDatabaseReadInterface
+    interface AuthenticationDatabaseUpdateInterface
     {
 
         /**
-         * Veri okuma işlemi yapar
+         * Veri güncelleme işlemi yapar
          *
          * @param string $table
          * @param callable|null $callable
          * @return mixed
          */
-        public function read($table, callable $callable = null);
+        public function update($table, callable $callable = null);
     }
+
