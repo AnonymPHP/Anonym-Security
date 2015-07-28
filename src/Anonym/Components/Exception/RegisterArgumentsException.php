@@ -7,7 +7,7 @@
      *
      */
 
-    namespace Anonym\Components\Security\Authentication;
+    namespace Anonym\Components\Security\Exception;
     use Exception;
 
     /**

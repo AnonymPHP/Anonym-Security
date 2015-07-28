@@ -10,7 +10,7 @@
     namespace Anonym\Components\Security\Authentication;
 
     use Anonym\Components\Database\Base;
-    use Anonym\Components\Security\Authentication\RegisterArgumentsException;
+    use Anonym\Components\Security\Exception\RegisterArgumentsException;
 
     /**
      * Class Register
