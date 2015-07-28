@@ -9,8 +9,17 @@
 
     namespace Anonym\Components\Security;
 
-
+    /**
+     * Interface FirewallInterface
+     * @package Anonym\Components\Security
+     */
     interface FirewallInterface
     {
 
+        /**
+         * Yakalama işlemini ve güvenlik önlemlerini yapar
+         *
+         * @return bool
+         */
+        public function handle();
     }
