@@ -17,6 +17,8 @@
     class CsrfTokenMatchException extends Exception
     {
         /**
+         * İstisnayı oluşturur
+         *
          * @param string $message
          */
         public function __construct($message = '')
