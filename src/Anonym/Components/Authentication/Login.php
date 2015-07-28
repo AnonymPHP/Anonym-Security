@@ -9,6 +9,8 @@
 
     namespace Anonym\Components\Security\Authentication;
 
+    use Anonym\Components\Database\Base;
+
     /**
      * Class Login
      * @package Anonym\Components\Security\Authentication
@@ -19,10 +21,10 @@
         /**
          * Sınıfı başlatır ve tablo yapılandırmasını yapar
          *
-         * @param AuthenticationDatabaseReadInterface $db
+         * @param Base $db
          * @param array $tables
          */
-        public function __construct(AuthenticationDatabaseReadInterface $db, array $tables = [])
+        public function __construct(Base $db, array $tables = [])
         {
             parent::__construct();
             $this->setDb($db);

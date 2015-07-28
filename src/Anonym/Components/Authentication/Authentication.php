@@ -11,6 +11,7 @@
 
     use Anonym\Components\Cookie\Cookie;
     use Anonym\Components\Cookie\CookieInterface;
+    use Anonym\Components\Database\Base;
     use Anonym\Components\Session\Session;
     use Anonym\Components\Session\SessionInterface;
 
@@ -38,7 +39,7 @@
         /**
          * Veritabanı objesini tutar
          *
-         * @var AuthenticationDatabaseReadInterface
+         * @var Base
          */
         private $db;
 
@@ -60,7 +61,7 @@
             $this->setCookie( new Cookie());
         }
         /**
-         * @return AuthenticationDatabaseReadInterface
+         * @return Base
          */
         public function getDb()
         {
@@ -68,10 +69,10 @@
         }
 
         /**
-         * @param AuthenticationDatabaseReadInterface $db
+         * @param Base $db
          * @return Login
          */
-        public function setDb($db)
+        public function setDb(Base $db)
         {
             $this->db = $db;
 
