@@ -10,6 +10,7 @@
     namespace Anonym\Components\Security\Authentication;
 
     use Anonym\Components\Database\Base;
+    use Anonym\Components\Security\Authentication\RegisterArgumentsException;
 
     /**
      * Class Register
@@ -18,6 +19,14 @@
     class Register extends Authentication implements RegisterInterface
     {
 
+        const USER_FILE = 'user.php';
+
+        /**
+         *Sınıfı başlatır
+         *
+         * @param Base $db
+         * @param array $tables
+         */
         public function __construct(Base $db, array $tables = [])
         {
             parent::__construct();
@@ -29,6 +38,7 @@
          * Kullanıcı kayıt işlemini yapar
          *
          * @param array $post
+         * @throws RegisterArgumentsException
          * @return mixed
          */
         public function register(array $post = [])
@@ -40,7 +50,7 @@
             if (count($registerParams) === count($post)) {
                 $inputValues = array_values($post);
                 if (count(array_diff($inputValues, $registerParams)) > 0) {
-                    throw new InvalidArgumentException('Register parametreleriniz %s dosyasındakilerle aynı olmalıdır.',self::USER_FILE);
+                    throw new RegisterArgumentsException('Register parametreleriniz %s dosyasındakilerle aynı olmalıdır.',self::USER_FILE);
                 } else {
                     $db = $this->getDb();
                     $insert = $db->insert($tableName, function ($mode) use ($input) {
@@ -51,7 +61,7 @@
                     return ($insert) ? true : false;
                 }
             } else {
-                throw new InvalidArgumentException('Register parametreleriniz user.yaml dosyasındakilerle aynı olmalıdır.');
+                throw new RegisterArgumentsException('Register parametreleriniz %s dosyasındakilerle aynı olmalıdır.', self::USER_FILE);
             }
 
         }

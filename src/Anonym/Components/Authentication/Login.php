@@ -67,6 +67,7 @@
             if ($login) {
                 if ($login->rowCount()) {
                     $login = (array)$login->fetch();
+                    /*
                     if (isset($table['role'])) {
                         $userid = $login[$userColumnName];
                         $role = $db->read($table['role'],
@@ -79,7 +80,8 @@
                            $role = (array) $role->fetch();
                             $login['role'] = $role['role_name'];
                         }
-                    }
+                       }
+                    */
 
                     $login =  new AuthenticationLoginObject($login);
                     $this->getSession()->set(static::USER_SESSION, $login);
