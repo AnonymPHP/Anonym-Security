@@ -13,15 +13,9 @@
      * Class Login
      * @package Anonym\Components\Security\Authentication
      */
-    class Login extends Authentication
+    class Login extends Authentication implements LoginInterface
     {
 
-        /**
-         * Veritabanı objesini tutar
-         *
-         * @var AuthenticationDatabaseReadInterface
-         */
-        private $db;
 
         /**
          * @param AuthenticationDatabaseReadInterface $db
@@ -43,25 +37,6 @@
         public function login($username = '', $password = '', $remember = false)
         {
 
-        }
-
-        /**
-         * @return AuthenticationDatabaseReadInterface
-         */
-        public function getDb()
-        {
-            return $this->db;
-        }
-
-        /**
-         * @param AuthenticationDatabaseReadInterface $db
-         * @return Login
-         */
-        public function setDb($db)
-        {
-            $this->db = $db;
-
-            return $this;
         }
 
         /**

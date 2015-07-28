@@ -35,7 +35,13 @@
          */
         private $cookie;
 
-        private $matcher;
+        /**
+         * Veritabanı objesini tutar
+         *
+         * @var AuthenticationDatabaseReadInterface
+         */
+        private $db;
+
 
         const USER_SESSION = 'AnonymFrameworkUser';
 
@@ -46,6 +52,26 @@
             $this->setSession( new Session());
             $this->setCookie( new Cookie());
         }
+        /**
+         * @return AuthenticationDatabaseReadInterface
+         */
+        public function getDb()
+        {
+            return $this->db;
+        }
+
+        /**
+         * @param AuthenticationDatabaseReadInterface $db
+         * @return Login
+         */
+        public function setDb($db)
+        {
+            $this->db = $db;
+
+            return $this;
+        }
+
+
 
         /**
          * @return SessionInterface
