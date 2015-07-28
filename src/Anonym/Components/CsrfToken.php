@@ -8,6 +8,7 @@
      */
 
     namespace Anonym\Components\Security;
+    use Anonym\Components\Session\Session;
     use Anonym\Components\Session\SessionInterface;
     use Anonym\Components\HttpClient\Input;
 
@@ -64,9 +65,9 @@
          * Son kontrolleri yapar
          */
         private function check(){
-            if (Input::has($this->formFieldName)) {
-                $key = Input::get($this->formFieldName);
-                if ($key === $this->getSession()->get($this->formFieldName)) {
+            if (Input::has($this->getFormFieldName())) {
+                $key = Input::get($this->getFormFieldName());
+                if ($key === $this->getSession()->get($this->getFormFieldName())) {
                     return true;
                 } else {
                     throw new CsrfTokenMatchException(sprintf('Girdiğiniz %s token olması gereken tokenle eşleşmiyor',
