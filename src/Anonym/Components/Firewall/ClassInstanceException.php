@@ -14,7 +14,16 @@
      * Class ClassInstanceException
      * @package Anonym\Components\Security
      */
-    class ClassInstanceException
+    class ClassInstanceException extends Exception
     {
 
+        /**
+         * İstisnayı oluşturur
+         *
+         * @param string $message
+         */
+        public function __construct($message = '')
+        {
+            $this->message = $message;
+        }
     }
