@@ -13,17 +13,15 @@
      * Class EncodingFirewall
      * @package Anonym\Components\Security
      */
-    class EncodingFirewall implements FirewallCheckerInterface
+    class EncodingFirewall extends FirewallChecker implements FirewallCheckerInterface
     {
 
-
-
         /**
-         * @param $allowed
-         * @param $encoding
+         * Sınamayı gerçekleştirir
+         *
+         * @return bool
          */
-        public function __construct($allowed, $encoding)
-        {
+        public function handle(){
 
         }
 
