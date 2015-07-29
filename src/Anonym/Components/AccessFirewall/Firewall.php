@@ -12,6 +12,7 @@
     use Anonym\Components\Security\EncodingFirewall;
     use Anonym\Components\Security\LanguageFirewall;
     use Anonym\Components\Security\AcceptFirewall;
+    use Anonym\Components\Security\ConnectionFirewall;
     use Anonym\Components\HttpClient\ServerHttpHeaders;
 
     /**
@@ -46,7 +47,7 @@
             'allowedEncoding'   => EncodingFirewall::class,
             'allowedLanguage'   => LanguageFirewall::class,
             'allowedAccept'     => AcceptFirewall::class,
-            'allowedConnection' => 'ConnectionFirewall',
+            'allowedConnection' => ConnectionFirewall::class,
             'allowedReferer'    => 'RefererFirewall',
             'allowedMethod'     => 'MethodFirewall'
         ];

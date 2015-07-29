@@ -9,7 +9,6 @@
 
     namespace Anonym\Components\Security;
     use Anonym\Components\Security\FirewallCheckerInterface;
-    use Anonym\Components\Security\FirewallCheckerInterface;
 
     /**
      * Class ConnectionFirewall

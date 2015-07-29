@@ -15,7 +15,6 @@
      */
     class LanguageFirewall extends FirewallChecker implements FirewallCheckerInterface
     {
-
         /**
          * Kontrol işlemini gerçekleştirir
          *
@@ -24,5 +23,4 @@
         public function handle(){
             return $this->defaultChecker();
         }
-
     }
