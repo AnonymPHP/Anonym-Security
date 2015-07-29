@@ -8,6 +8,7 @@
      */
 
     namespace Anonym\Components\Security;
+
     use Anonym\Components\Security\UserAgentFirewall;
     use Anonym\Components\Security\EncodingFirewall;
     use Anonym\Components\Security\LanguageFirewall;
@@ -15,6 +16,7 @@
     use Anonym\Components\Security\ConnectionFirewall;
     use Anonym\Components\Security\RefererFirewall;
     use Anonym\Components\Security\MethodFirewall;
+    use Anonym\Components\Security\CheckerSetterInterface;
     use Anonym\Components\HttpClient\ServerHttpHeaders;
 
     /**
@@ -30,13 +32,13 @@
          * @var array
          */
         private $parameters = [
-            'allowedUserAgent'  => 'User-Agent',
-            'allowedEncoding'   => 'Accept-Encoding',
-            'allowedLanguage'   => 'Accept-Language',
-            'allowedAccept'     => 'Accept',
+            'allowedUserAgent' => 'User-Agent',
+            'allowedEncoding' => 'Accept-Encoding',
+            'allowedLanguage' => 'Accept-Language',
+            'allowedAccept' => 'Accept',
             'allowedConnection' => 'Connection',
-            'allowedReferer'    => 'Referer',
-            'allowedMethod'     => 'Method'
+            'allowedReferer' => 'Referer',
+            'allowedMethod' => 'Method',
         ];
 
         /**
@@ -45,13 +47,13 @@
          * @var array
          */
         private $classes = [
-            'allowedUserAgent'  => UserAgentFirewall::class,
-            'allowedEncoding'   => EncodingFirewall::class,
-            'allowedLanguage'   => LanguageFirewall::class,
-            'allowedAccept'     => AcceptFirewall::class,
+            'allowedUserAgent' => UserAgentFirewall::class,
+            'allowedEncoding' => EncodingFirewall::class,
+            'allowedLanguage' => LanguageFirewall::class,
+            'allowedAccept' => AcceptFirewall::class,
             'allowedConnection' => ConnectionFirewall::class,
-            'allowedReferer'    => RefererFirewall::class,
-            'allowedMethod'     => MethodFirewall::class,
+            'allowedReferer' => RefererFirewall::class,
+            'allowedMethod' => MethodFirewall::class,
         ];
 
 
@@ -77,24 +79,28 @@
          *
          *  işlemi yürütür
          */
-        public function run(){
+        public function run()
+        {
             $headers = $this->getHeaders();
             $classes = $this->getClasses();
 
-            foreach($this->getParameters() as $key => $parameter)
-            {
+            foreach ($this->getParameters() as $key => $parameter) {
 
                 $value = isset($headers[$parameter]) ? $headers[$parameter] : '';
                 $class = isset($classes[$key]) ? $classes[$key] : false;
 
-                if(is_string($class))
-                {
+                if (is_string($class)) {
                     $class = new $class();
 
+                    if ($class instanceof CheckerSetterInterface) {
+                        $class->setAlloweds($this->getAllowed());
+                        $class->setValue($value);
+
+                    } else {
+                    }
+
                 }
-
             }
-
         }
 
         /**
@@ -151,7 +157,6 @@
 
             return $this;
         }
-
 
 
     }
