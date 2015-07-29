@@ -8,7 +8,10 @@
      */
 
     namespace Anonym\Components\Security;
-
+    use Anonym\Components\Security\UserAgentFirewall;
+    use Anonym\Components\Security\EncodingFirewall;
+    use Anonym\Components\Security\LanguageFirewall;
+    use Anonym\Components\Security\AcceptFirewall;
     use Anonym\Components\HttpClient\ServerHttpHeaders;
 
     /**
@@ -39,10 +42,10 @@
          * @var array
          */
         private $classes = [
-            'allowedUserAgent'  => 'UserAgentFirewall',
-            'allowedEncoding'   => 'EncodingFirewall',
-            'allowedLanguage'   => 'LanguageFirewall',
-            'allowedAccept'     => 'AcceptFirewall',
+            'allowedUserAgent'  => UserAgentFirewall::class,
+            'allowedEncoding'   => EncodingFirewall::class,
+            'allowedLanguage'   => LanguageFirewall::class,
+            'allowedAccept'     => AcceptFirewall::class,
             'allowedConnection' => 'ConnectionFirewall',
             'allowedReferer'    => 'RefererFirewall',
             'allowedMethod'     => 'MethodFirewall'

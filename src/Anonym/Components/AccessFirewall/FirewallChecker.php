@@ -68,5 +68,26 @@
             return $this;
         }
 
+        /**
+         * Default değer testini yapar
+         * @return bool
+         */
+        protected function defaultChecker(){
+            $allowed = $this->getAlloweds();
+            $useragent = $this->getValue();
+            if('*' === $allowed){
+                return true;
+            }
+
+            $allowed = (array) $allowed;
+            if (is_array($allowed)) {
+                foreach($allowed as $allow)
+                {
+                    if (strstr($useragent, $allow)) {
+                        return true;
+                    }
+                }
+            }
+        }
 
     }
