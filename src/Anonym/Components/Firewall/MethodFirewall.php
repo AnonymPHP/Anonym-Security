@@ -9,8 +9,20 @@
 
     namespace Anonym\Components\Security;
 
-
-    class MethodFirewall
+    use Anonym\Components\Security\FirewallCheckerInterface;
+    /**
+     * Class MethodFirewall
+     * @package Anonym\Components\Security
+     */
+    class MethodFirewall extends FirewallChecker implements FirewallCheckerInterface
     {
 
+        /**
+         * Kontrol işlemini gerçekleştirir
+         *
+         * @return bool
+         */
+        public function handle(){
+            return $this->defaultChecker();
+        }
     }
