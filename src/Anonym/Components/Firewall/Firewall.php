@@ -14,6 +14,7 @@
     use Anonym\Components\Security\AcceptFirewall;
     use Anonym\Components\Security\ConnectionFirewall;
     use Anonym\Components\Security\RefererFirewall;
+    use Anonym\Components\Security\MethodFirewall;
     use Anonym\Components\HttpClient\ServerHttpHeaders;
 
     /**
@@ -50,7 +51,7 @@
             'allowedAccept'     => AcceptFirewall::class,
             'allowedConnection' => ConnectionFirewall::class,
             'allowedReferer'    => RefererFirewall::class,
-            'allowedMethod'     => 'MethodFirewall'
+            'allowedMethod'     => MethodFirewall::class,
         ];
 
 
@@ -77,6 +78,22 @@
          *  işlemi yürütür
          */
         public function run(){
+            $headers = $this->getHeaders();
+            $classes = $this->getClasses();
+
+            foreach($this->getParameters() as $key => $parameter)
+            {
+
+                $value = isset($headers[$parameter]) ? $headers[$parameter] : '';
+                $class = isset($classes[$key]) ? $classes[$key] : false;
+
+                if(is_string($class))
+                {
+                    $class = new $class();
+
+                }
+
+            }
 
         }
 

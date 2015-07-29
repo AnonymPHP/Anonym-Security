@@ -13,7 +13,7 @@
      * Class FirewallChecker
      * @package Anonym\Components\Security
      */
-    abstract class FirewallChecker
+    abstract class FirewallChecker implements CheckerSetterInterface
     {
         /**
          * İzin verilen encoding leri tutar
