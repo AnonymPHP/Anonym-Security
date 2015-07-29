@@ -56,10 +56,23 @@
          */
         private $allowed;
 
+        /**
+         * Sınıfı başlatır
+         *
+         * @param array $allowed
+         */
         public function __construct(array $allowed = [])
         {
             parent::__construct();
             $this->setAllowed($allowed);
+        }
+
+        /**
+         *
+         *  işlemi yürütür
+         */
+        public function run(){
+
         }
 
         /**
@@ -69,6 +82,7 @@
         {
             return $this->allowed;
         }
+
 
         /**
          * @param array $allowed
