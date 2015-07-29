@@ -23,22 +23,6 @@
          */
         public function handle()
         {
-            $allowed = $this->getAlloweds();
-            $useragent = $this->getValue();
-            if('*' === $allowed){
-                return true;
-            }
-
-            $allowed = (array) $allowed;
-            if (is_array($allowed)) {
-                foreach($allowed as $allow)
-                {
-                    if (strstr($useragent, $allow)) {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
+            return $this->defaultChecker();
         }
     }
