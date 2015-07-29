@@ -7,17 +7,19 @@
      *
      */
 
-    namespace Anonym\Components\Security;
+       namespace Anonym\Components\Security\Firewall\Firewall;
 
-    use Anonym\Components\Security\UserAgentFirewall;
-    use Anonym\Components\Security\EncodingFirewall;
-    use Anonym\Components\Security\LanguageFirewall;
-    use Anonym\Components\Security\AcceptFirewall;
-    use Anonym\Components\Security\ConnectionFirewall;
-    use Anonym\Components\Security\RefererFirewall;
-    use Anonym\Components\Security\MethodFirewall;
-    use Anonym\Components\Security\CheckerSetterInterface;
+    use Anonym\Components\Security\Exception\FirewallException;
+    use Anonym\Components\Security\Firewall\UserAgentFirewall;
+    use Anonym\Components\Security\Firewall\EncodingFirewall;
+    use Anonym\Components\Security\Firewall\LanguageFirewall;
+    use Anonym\Components\Security\Firewall\AcceptFirewall;
+    use Anonym\Components\Security\Firewall\ConnectionFirewall;
+    use Anonym\Components\Security\Firewall\RefererFirewall;
+    use Anonym\Components\Security\Firewall\MethodFirewall;
+    use Anonym\Components\Security\Firewall\CheckerSetterInterface;
     use Anonym\Components\HttpClient\ServerHttpHeaders;
+    use Anonym\Components\Security\Exception\ClassInstanceException;
 
     /**
      * Class Firewall
@@ -92,13 +94,28 @@
                 if (is_string($class)) {
                     $class = new $class();
 
-                    if ($class instanceof CheckerSetterInterface) {
+                    if ($class instanceof CheckerSetterInterface ||
+                        $class instanceof FirewallCheckerInterface
+                    ) {
                         $class->setAlloweds($this->getAllowed());
                         $class->setValue($value);
 
                     } else {
+                        throw new ClassInstanceException(
+                            sprintf('Sınıfınız %s interface ine sahip olmalıdır', CheckerSetterInterface::class)
+                        );
                     }
+                } elseif ($class instanceof FirewallCheckerInterface) {
+                    $class->setAlloweds($this->getAllowed());
+                    $class->setValue($value);
+                } else {
+                    throw new ClassInstanceException('Girdiğiniz içerik geçerli bir checker değil');
+                }
 
+                $handle = $class->handle();
+
+                if (false === $handle) {
+                    throw new FirewallException('Sahip Olduğunuz bazı özelliklerden dolayı uygulamamıza erişemezsiniz');
                 }
             }
         }

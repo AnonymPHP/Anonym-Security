@@ -7,8 +7,7 @@
      *
      */
 
-    namespace Anonym\Components\Security;
-
+       namespace Anonym\Components\Security\Firewall;
     /**
      * Class FirewallChecker
      * @package Anonym\Components\Security

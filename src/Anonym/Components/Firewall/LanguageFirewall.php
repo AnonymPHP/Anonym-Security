@@ -7,8 +7,8 @@
      *
      */
 
-    namespace Anonym\Components\Security;
-    use Anonym\Components\Security\FirewallCheckerInterface;
+       namespace Anonym\Components\Security\Firewall;
+    use Anonym\Components\Security\Firewall\FirewallCheckerInterface;
     /**
      * Class LanguageFirewall
      * @package Anonym\Components\Security

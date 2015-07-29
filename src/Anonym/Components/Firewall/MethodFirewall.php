@@ -7,9 +7,9 @@
      *
      */
 
-    namespace Anonym\Components\Security;
+       namespace Anonym\Components\Security\Firewall;
 
-    use Anonym\Components\Security\FirewallCheckerInterface;
+    use Anonym\Components\Security\Firewall\FirewallCheckerInterface;
     /**
      * Class MethodFirewall
      * @package Anonym\Components\Security

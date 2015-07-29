@@ -7,7 +7,7 @@
      *
      */
 
-    namespace Anonym\Components\Security;
+       namespace Anonym\Components\Security\Firewall;
     use Anonym\Components\Security\Exception\FirewallException;
     use M6Web\Component\Firewall\Firewall as ParentFirewall;
 
