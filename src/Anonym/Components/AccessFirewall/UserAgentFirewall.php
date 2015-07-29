@@ -13,27 +13,8 @@
      * Class UserAgentFirewall
      * @package Anonym\Components\Security
      */
-    class UserAgentFirewall implements FirewallCheckerInterface
+    class UserAgentFirewall extends FirewallChecker implements FirewallCheckerInterface
     {
-
-        /**
-         * İzin verilen değerleri tutar
-         *
-         * @var mixed
-         */
-        private $alloweds;
-
-        /**
-         * useragent değerini tutar
-         *
-         * @var string
-         */
-        private $userAgent;
-
-        public function __construct($alloweds, $useragent){
-            $this->alloweds = $alloweds;
-            $this->userAgent = $useragent;
-        }
 
         /**
          * Karşılaştırma yapar
@@ -42,8 +23,8 @@
          */
         public function handle()
         {
-            $allowed = $this->alloweds;
-            $useragent = $this->userAgent;
+            $allowed = $this->getAlloweds();
+            $useragent = $this->getValue();
             if('*' === $allowed){
                 return true;
             }

@@ -13,7 +13,7 @@
      * Class FirewallChecker
      * @package Anonym\Components\Security
      */
-    class FirewallChecker
+    abstract class FirewallChecker
     {
         /**
          * İzin verilen encoding leri tutar
