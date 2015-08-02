@@ -97,7 +97,8 @@
                     if ($class instanceof CheckerSetterInterface ||
                         $class instanceof FirewallCheckerInterface
                     ) {
-                        $class->setAlloweds($this->getAllowed());
+                        $allowed = $this->getAllowed()[$key];
+                        $class->setAlloweds($allowed);
                         $class->setValue($value);
 
                     } else {

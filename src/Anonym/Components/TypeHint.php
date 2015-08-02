@@ -49,7 +49,7 @@
          * @param string $errMessage
          * @return bool
          */
-        public static function hint($errLevel, $errMessage)
+        public static function handle($errLevel, $errMessage)
         {
 
             if ($errLevel === E_RECOVERABLE_ERROR) {
