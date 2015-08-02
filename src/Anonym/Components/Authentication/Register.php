@@ -53,7 +53,7 @@
                 } else {
                     $db = $this->getDb();
                     $insert = $db->insert($tableName, function ($mode) use ($post) {
-                        $mode->set($input)
+                        $mode->set($post)
                             ->run();
                     });
 
