@@ -9,28 +9,17 @@
 
     namespace Anonym\Components\Security\Authentication;
 
-    use Anonym\Components\Cookie\Cookie;
-    use Anonym\Components\Session\Session;
-
     /**
-     * Class Logout
+     * Interface LogoutInterface
      * @package Anonym\Components\Security\Authentication
      */
-    class Logout extends Authentication
+    interface LogoutInterface
     {
-
         /**
          * Çıkış işlemini yapar
          *
          * @return bool
          */
-        public function logout()
-        {
-            $cookie = new Cookie();
-            $cookie->delete(static::USER_SESSION);
-            $session = new Session();
-            $session->delete(static::USER_SESSION);
-
-            return true;
-        }
+        public function logout();
     }
+

@@ -79,3 +79,12 @@ $register = register->register([
 var_dump($register); // true or false
 ```
 
+**Çıkış Yaptırmak:**
+
+```php
+
+use Anonym\Components\Security\Authentication\Logout;
+$logout = new Logout();
+$logout->logout(); // true
+
+```
