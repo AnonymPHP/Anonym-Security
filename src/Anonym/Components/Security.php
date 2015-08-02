@@ -51,7 +51,7 @@
         public function xssProtection($data = '')
         {
 
-            $data = str_replace(['"', "'", "<", ">", "&lt;","3C","3E","22","27"], '', $data);
+            $data = str_replace($this->getReplaceTags(), '', $data);
             if (!is_string($data)) {
 
                 throw new \Exception(sprintf('%s veri tipi %s fonksiyonunda kullanılamaz', gettype($data),
