@@ -8,6 +8,7 @@
      */
 
     namespace Anonym\Components\Security;
+    use Anonym\Components\Security\Exception\VariableNotFoundException;
     use Anonym\Components\Session\Session;
     use Anonym\Components\Session\SessionInterface;
     use Anonym\Components\HttpClient\Input;
@@ -145,6 +146,29 @@
             $this->session = $session;
 
             return $this;
+        }
+
+        /**
+         * @return string
+         */
+        public function getToken()
+        {
+            return $this->getSecurityKeyGenerate()->generate();
+        }
+
+        /**
+         * @param string $name
+         * @throws VariableNotFoundException
+         * @return string
+         */
+        public function __get($name)
+        {
+            if('token' === $name)
+            {
+                return $this->getToken();
+            }else{
+                throw new VariableNotFoundException(sprintf('%s adında bir değer bulunamadı', $name));
+            }
         }
 
     }
