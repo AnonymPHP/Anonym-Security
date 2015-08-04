@@ -88,3 +88,35 @@ $logout = new Logout();
 $logout->logout(); // true
 
 ```
+
+
+Security
+--------
+
+
+**xss koruması**
+
+```php
+$security = new Security();
+$xss = $security->xssProtection($metin);
+``,
+
+CsrfToken
+---------
+
+
+```php
+
+$csrf = new CsrfToken();
+$token = $csrf->getToken(); // $csrf->token;
+
+```
+
+-----------
+**kontrol etmek**
+
+```php
+
+$csrf->run();
+
+```
