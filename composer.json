@@ -7,12 +7,6 @@
   "homepage": "https://gemframework.com",
   "description": "AnonymFramework Security Component",
   "license": "MIT",
-  "repositories": [
-    {
-      "type": "git",
-      "url": "git://github.com/AnonymPHP/Anonym-Security.git"
-    }
-  ],
   "minimum-stability": "dev",
   "authors": [
     {
