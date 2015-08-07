@@ -10,6 +10,7 @@
     namespace Anonym\Components\Security\Authentication;
 
     use Anonym\Components\Database\Base;
+    use Anonym\Components\Database\Mode\Read;
 
     /**
      * Class Login
@@ -48,7 +49,7 @@
             $getTables = $table['select'];
             $login = $db->read(
                 $table['table'],
-                function ($mode) use (
+                function (Read $mode) use (
                     $userColumnName,
                     $passColumnName,
                     $username,

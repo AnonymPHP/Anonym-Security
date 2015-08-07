@@ -20,6 +20,7 @@
     use Anonym\Components\Security\Firewall\CheckerSetterInterface;
     use Anonym\Components\HttpClient\ServerHttpHeaders;
     use Anonym\Components\Security\Exception\ClassInstanceException;
+    use Anonym\Components\Security\Firewall\FirewallCheckerInterface;
 
     /**
      * Class Firewall

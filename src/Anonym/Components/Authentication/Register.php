@@ -10,6 +10,7 @@
     namespace Anonym\Components\Security\Authentication;
 
     use Anonym\Components\Database\Base;
+    use Anonym\Components\Database\Mode\Insert;
     use Anonym\Components\Security\Exception\RegisterArgumentsException;
 
     /**
@@ -38,6 +39,7 @@
          * Kullanıcı kayıt işlemini yapar
          *
          * @param array $post
+         * @throws RegisterArgumentsException
          * @return mixed
          */
         public function register(array $post = [])
@@ -52,7 +54,7 @@
                     throw new RegisterArgumentsException(sprintf('Register parametreleriniz %s dosyasındakilerle aynı olmalıdır.',self::USER_FILE));
                 } else {
                     $db = $this->getDb();
-                    $insert = $db->insert($tableName, function ($mode) use ($post) {
+                    $insert = $db->insert($tableName, function (Insert $mode) use ($post) {
                         $mode->set($post)
                             ->run();
                     });
