@@ -24,5 +24,4 @@
         public function handle(){
             return $this->defaultChecker();
         }
-
     }
