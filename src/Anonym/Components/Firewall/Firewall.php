@@ -130,15 +130,11 @@
          */
         public function addFirewall(array $values = [])
         {
-
-            $classes = $values['classes'];
             $parametres = $values['parametres'];
 
             $this->parameters[] = $parametres;
             $this->classes= $values['classes'];
-
             return $this;
-
         }
 
         /**
