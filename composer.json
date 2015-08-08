@@ -17,8 +17,8 @@
   ],
   "require-dev": {
     "php": ">=5.4.0",
-    "anonym-php/anonym-session": "dev-master",
-    "anonym-php/anonym-httpclient": "dev-master",
+    "anonym-php/anonym-session": "~1.2@dev",
+    "anonym-php/anonym-httpclient": "~1.2@dev",
     "m6web/firewall": "dev-master"
   },
   "autoload": {
@@ -28,7 +28,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "1.0-dev"
+      "dev-master": "1.2-dev"
     }
   }
 }
