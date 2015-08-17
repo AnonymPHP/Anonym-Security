@@ -23,7 +23,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Anonym\\Components\\Security\\": "src/Anonym/Components/"
+      "Anonym\\Components\\Security\\": ""
     }
   },
   "extra": {
