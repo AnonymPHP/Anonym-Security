@@ -17,7 +17,7 @@
      * Class AuthenticationSessionMatcher
      * @package Anonym\Components\Security\Exception
      */
-    class AuthenticationSessionMatcher extends  Authentication implements  AuthenticationMatcherInterface
+    class SessionMatcher extends  Authentication implements  AuthenticationMatcherInterface
     {
 
         /**

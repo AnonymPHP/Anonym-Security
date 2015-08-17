@@ -15,7 +15,7 @@
      * Class AuthenticationLoginObject
      * @package Anonym\Components\Security
      */
-    class AuthenticationLoginObject implements ArrayAccess
+    class LoginObject implements ArrayAccess
     {
 
         /**

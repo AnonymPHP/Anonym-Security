@@ -13,7 +13,7 @@
      * Class AuthenticationRegisterObject
      * @package Anonym\Components\Security\Authentication
      */
-    class AuthenticationRegisterObject
+    class RegisterObject
     {
 
         /**

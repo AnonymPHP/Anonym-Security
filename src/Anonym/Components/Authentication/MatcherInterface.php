@@ -13,7 +13,7 @@
      * Interface AuthenticationMatcherInterface
      * @package Anonym\Components\Security
      */
-    interface AuthenticationMatcherInterface
+    interface MatcherInterface
     {
 
         /**

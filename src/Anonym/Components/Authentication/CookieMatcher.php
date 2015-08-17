@@ -13,7 +13,7 @@
      * Class AuthenticationCookieMatcher
      * @package Anonym\Components\Security\Authentication
      */
-    class AuthenticationCookieMatcher extends Authentication implements  AuthenticationMatcherInterface
+    class CookieMatcher extends Authentication implements  AuthenticationMatcherInterface
     {
 
         /**
