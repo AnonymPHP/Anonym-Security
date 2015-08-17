@@ -1,7 +1,7 @@
 Anonym-Security
 ================
 
-Bu sınıf AnonymFrameworkde güvenlik önlemleri almak için kullanılacaktır.
+these component will be used for framework security
 
 TypeHint
 --------
@@ -38,8 +38,7 @@ $firewall->run();
 Authentication
 -------------
 
-Bu kısımda giriş, çıkış ve kayıt işlemleri gibi kullanıcı onaylama işlemleri yer almaktadır.
-
+Login, Exit and more in this namespace
 
 **Login:**
 
@@ -79,7 +78,7 @@ $register = register->register([
 var_dump($register); // true or false
 ```
 
-**Çıkış Yaptırmak:**
+**Exit:**
 
 ```php
 
@@ -94,7 +93,7 @@ Security
 --------
 
 
-**xss koruması**
+**xss protection:**
 
 ```php
 $security = new Security();
@@ -113,7 +112,7 @@ $token = $csrf->getToken(); // $csrf->token;
 ```
 
 -----------
-**kontrol etmek**
+**check the csrf token**
 
 ```php
 
