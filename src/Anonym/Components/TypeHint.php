@@ -10,6 +10,10 @@
     namespace Anonym\Components\Security;
 
     /**
+     * the class of type hint
+     *
+     * uses for string,integer,array,float,resource types hint
+     *
      * Class TypeHint
      * @package Anonym\Components\Security
      */
@@ -17,7 +21,7 @@
     {
 
         /**
-         * Kontrol edilecek tipler tutulur
+         * store the types
          *
          * @var array
          */
@@ -32,7 +36,7 @@
         ];
 
         /**
-         * Errors Handleri Atar
+         * register the error handler
          *
          * @access public
          */
@@ -43,11 +47,11 @@
         }
 
         /**
-         * yakalama işlemini yapar
+         * catches the error
          *
-         * @param integer $errLevel
-         * @param string $errMessage
-         * @return bool
+         * @param integer $errLevel the level of error
+         * @param string $errMessage the message of error
+         * @return bool true on success, if failure happen return false
          */
         public static function handle($errLevel, $errMessage)
         {
