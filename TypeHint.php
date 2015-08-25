@@ -47,7 +47,7 @@
         }
 
         /**
-         * catches the error
+         * handle the error
          *
          * @param integer $errLevel the level of error
          * @param string $errMessage the message of error
