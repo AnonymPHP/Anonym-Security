@@ -15,7 +15,7 @@
       "homepage": "http://www.gemframework.com"
     }
   ],
-  "require-dev": {
+  "require": {
     "php": ">=5.4.0",
     "anonym-php/anonym-session": "~1.2@dev",
     "anonym-php/anonym-httpclient": "~1.2@dev",
