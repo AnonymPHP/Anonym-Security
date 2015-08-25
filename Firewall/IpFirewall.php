@@ -15,7 +15,7 @@
      * Class Firewall
      * @package Anonym\Components\Security
      */
-    class Firewall extends ParentFirewall implements FirewallCheckerInterface
+    class IpFirewall extends ParentFirewall implements FirewallCheckerInterface
     {
 
         /**
