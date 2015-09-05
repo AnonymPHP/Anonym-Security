@@ -25,4 +25,13 @@ class Guard extends Authentication
      */
     private $request;
 
+    /**
+     *  create a new instance
+     *
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->request = new Request();
+    }
 }

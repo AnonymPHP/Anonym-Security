@@ -51,6 +51,11 @@
          */
         private $tables;
 
+        /**
+         * @var Request
+         */
+        private $request;
+
         const USER_SESSION = 'AnonymFrameworkUser';
 
         /**
