@@ -72,5 +72,20 @@ class Guard extends Authentication
      */
     public function hasRole($role = ''){
 
+        $session = $this->getSession();
+        $cookie = $this->getCookie();
+
+
+        if ($cookie->has(self::USER_SESSION)) {
+            $login = $cookie->get(self::USER_SESSION);
+        }elseif (false !== $session->has(self::USER_SESSION)) {
+            $login = $session->get(self::USER_SESSION);
+        }else{
+            return false;
+        }
+
+        $roleLogin = $login['role'];
+
+        return $roleLogin === $role;
     }
 }
