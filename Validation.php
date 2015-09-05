@@ -10,12 +10,29 @@
 
 
 namespace Anonym\Components\Security;
-
+use GUMP;
 /**
  * Class Validation
  * @package Anonym\Components\Security
  */
-class Validation
+class Validation extends GUMP
 {
+
+    /**
+     * validate datas with validation rules and filter rules
+     *
+     * @param array $data
+     * @param array $validationRules
+     * @param array $filterRules
+     * @return bool|array
+     */
+    public function validate(array $data = [],array $validationRules = [],array $filterRules = [])
+    {
+        $data = $this->sanitize($data);
+        $this->validation_rules($validationRules);
+        $this->filter_rules($filterRules);
+
+        return $this->run($data);
+    }
 
 }
