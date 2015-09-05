@@ -34,5 +34,4 @@ class Validation extends GUMP
 
         return $this->run($data);
     }
-
 }
