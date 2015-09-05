@@ -34,4 +34,13 @@ class Validation extends GUMP
 
         return $this->run($data);
     }
+
+    /**
+     * return the validation error message
+     *
+     * @return array
+     */
+    public function getError(){
+        return $this->get_readable_errors(true);
+    }
 }
