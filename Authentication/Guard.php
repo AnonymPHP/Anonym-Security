@@ -11,6 +11,8 @@
 
 namespace Anonym\Components\Security\Authentication;
 
+use Anonym\Components\Security\Security;
+
 /**
  * Class Guard
  * @package Anonym\Components\Security\Authentication
@@ -33,7 +35,33 @@ class Guard extends Authentication
      */
     public function isLogined()
     {
-        return $this->getSession()->has(static::USER_SESSION) || $this->getCookie()->has(static::USER_SESSION);
+        $session = $this->getSession();
+        $cookie = $this->getCookie();
+
+        if ($cookie->has(self::USER_SESSION)) {
+            $login = $cookie->get(self::USER_SESSION);
+        }elseif (false !== $session->has(self::USER_SESSION)) {
+            $login = $session->get(self::USER_SESSION);
+        }else{
+            return false;
+        }
+
+        return $this->isSameIp($login);
+    }
+
+    /**
+     *  check the ip's
+     *
+     * @param LoginObject|ip
+     * @return bool
+     */
+    public function isSameIp($ip){
+
+        if ($ip instanceof LoginObject) {
+            $ip = $ip['ip'];
+        }
+
+        return $ip === Security::ip();
     }
 
     /**
@@ -45,5 +73,4 @@ class Guard extends Authentication
     public function hasRole($role = ''){
 
     }
-
 }
