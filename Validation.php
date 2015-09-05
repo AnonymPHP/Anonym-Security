@@ -11,7 +11,10 @@
 
 namespace Anonym\Components\Security;
 
-
+/**
+ * Class Validation
+ * @package Anonym\Components\Security
+ */
 class Validation
 {
 
