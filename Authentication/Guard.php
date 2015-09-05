@@ -10,12 +10,18 @@
 
 
 namespace Anonym\Components\Security\Authentication;
-
 /**
  * Class Guard
  * @package Anonym\Components\Security\Authentication
  */
 class Guard extends Authentication
 {
+
+    /**
+     * the instance of request
+     *
+     * @var Request
+     */
+    private $request;
 
 }
