@@ -39,7 +39,7 @@
          * @param string $username
          * @param string $password
          * @param bool|false $remember
-         * @return bool|AuthenticationLoginObject
+         * @return bool|LoginObject
          */
         public function login($username = '', $password = '', $remember = false)
         {
@@ -47,6 +47,10 @@
             $table = $this->getTables();
             list($userColumnName, $passColumnName) = $table['login'];
             $getTables = $table['select'];
+
+            $getTables[] = $table['authentication']['column'];
+
+            // login
             $login = $db->read(
                 $table['table'],
                 function (Read $mode) use (
