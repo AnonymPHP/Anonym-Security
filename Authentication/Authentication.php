@@ -8,7 +8,7 @@
      */
 
     namespace Anonym\Components\Security\Authentication;
-
+    use Anonym\Components\HttpClient\Request;
     use Anonym\Components\Cookie\Cookie;
     use Anonym\Components\Cookie\CookieInterface;
     use Anonym\Components\Database\Base;
@@ -51,10 +51,6 @@
          */
         private $tables;
 
-        /**
-         * @var Request
-         */
-        private $request;
 
         const USER_SESSION = 'AnonymFrameworkUser';
 
@@ -65,6 +61,27 @@
             $this->setSession( new Session());
             $this->setCookie( new Cookie());
         }
+
+        /**
+         * @return Request
+         */
+        public function getRequest()
+        {
+            return $this->request;
+        }
+
+        /**
+         * @param Request $request
+         * @return Authentication
+         */
+        public function setRequest(Request $request)
+        {
+            $this->request = $request;
+
+            return $this;
+        }
+
+
         /**
          * @return Base
          */

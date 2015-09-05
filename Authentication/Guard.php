@@ -10,28 +10,18 @@
 
 
 namespace Anonym\Components\Security\Authentication;
-use Anonym\Components\HttpClient\Request;
 /**
  * Class Guard
  * @package Anonym\Components\Security\Authentication
  */
 class Guard extends Authentication
 {
-
     /**
-     * the instance of request
-     *
-     * @var Request
-     */
-    private $request;
-
-    /**
-     *  create a new instance
+     * create a new instance
      *
      */
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
-        $this->request = new Request();
     }
+
 }
