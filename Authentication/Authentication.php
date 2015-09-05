@@ -63,26 +63,6 @@
         }
 
         /**
-         * @return Request
-         */
-        public function getRequest()
-        {
-            return $this->request;
-        }
-
-        /**
-         * @param Request $request
-         * @return Authentication
-         */
-        public function setRequest(Request $request)
-        {
-            $this->request = $request;
-
-            return $this;
-        }
-
-
-        /**
          * @return Base
          */
         public function getDb()

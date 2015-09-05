@@ -10,6 +10,7 @@
 
 
 namespace Anonym\Components\Security\Authentication;
+
 /**
  * Class Guard
  * @package Anonym\Components\Security\Authentication
@@ -20,11 +21,19 @@ class Guard extends Authentication
      * create a new instance
      *
      */
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
     }
 
-    public function isLogined(){
+    /**
+     * check is login usered
+     *
+     * @return bool
+     */
+    public function isLogined()
+    {
         return $this->getSession()->has(static::USER_SESSION) || $this->getCookie()->has(static::USER_SESSION);
     }
+
 }
