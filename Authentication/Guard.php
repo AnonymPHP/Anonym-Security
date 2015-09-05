@@ -10,6 +10,7 @@
 
 
 namespace Anonym\Components\Security\Authentication;
+use Anonym\Components\HttpClient\Request;
 /**
  * Class Guard
  * @package Anonym\Components\Security\Authentication
