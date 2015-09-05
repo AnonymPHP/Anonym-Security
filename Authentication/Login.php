@@ -68,7 +68,7 @@
             if ($login) {
                 if ($login->rowCount()) {
                     $login = (array)$login->fetch();
-                    $login =  new AuthenticationLoginObject($login);
+                    $login =  new LoginObject($login);
                     $this->getSession()->set(static::USER_SESSION, $login);
 
                     if($remember){
