@@ -36,4 +36,14 @@ class Guard extends Authentication
         return $this->getSession()->has(static::USER_SESSION) || $this->getCookie()->has(static::USER_SESSION);
     }
 
+    /**
+     * check the user role
+     *
+     * @param string|int $role
+     * @return bool
+     */
+    public function hasRole($role = ''){
+
+    }
+
 }
