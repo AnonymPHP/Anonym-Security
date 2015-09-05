@@ -11,6 +11,7 @@
 
     use Anonym\Components\Database\Base;
     use Anonym\Components\Database\Mode\Read;
+    use Anonym\Components\Security\Security;
 
     /**
      * Class Login
@@ -72,6 +73,8 @@
             if ($login) {
                 if ($login->rowCount()) {
                     $login = (array)$login->fetch();
+
+                    $login['ip'] = Security::ip();
                     $login =  new LoginObject($login);
                     $this->getSession()->set(static::USER_SESSION, $login);
 
