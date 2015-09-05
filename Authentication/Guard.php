@@ -24,4 +24,7 @@ class Guard extends Authentication
         parent::__construct();
     }
 
+    public function isLogined(){
+        return $this->getSession()->has(static::USER_SESSION) || $this->getCookie()->has(static::USER_SESSION);
+    }
 }
