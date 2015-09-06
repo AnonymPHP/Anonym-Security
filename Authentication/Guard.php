@@ -40,6 +40,7 @@ class Guard extends Authentication
 
         if ($cookie->has(self::USER_SESSION)) {
             $login = $cookie->get(self::USER_SESSION);
+            unserialize($login);
         }elseif (false !== $session->has(self::USER_SESSION)) {
             $login = $session->get(self::USER_SESSION);
         }else{
