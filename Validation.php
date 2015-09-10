@@ -26,7 +26,7 @@ class Validation extends GUMP
      * @param array $filterRules
      * @return bool|array
      */
-    public function validate(array $data = [],array $validationRules = [],array $filterRules = [])
+    public function make(array $data = [],array $validationRules = [],array $filterRules = [])
     {
         $data = $this->sanitize($data);
         $this->validation_rules($validationRules);
