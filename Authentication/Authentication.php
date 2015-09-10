@@ -12,8 +12,7 @@
     use Anonym\Components\Cookie\Cookie;
     use Anonym\Components\Cookie\CookieInterface;
     use Anonym\Components\Database\Base;
-    use Anonym\Components\Session\Session;
-    use Anonym\Components\Session\SessionInterface;
+    use Anonym\Components\Session\StrogeInterface;
     use Anonym\Facades\App;
 
     /**
