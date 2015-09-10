@@ -25,7 +25,7 @@
         /**
          * Session objesini tutar
          *
-         * @var SessionInterface
+         * @var StrogeInterface
          */
         private $session;
 
@@ -91,10 +91,10 @@
         }
 
         /**
-         * @param SessionInterface $session
+         * @param StrogeInterface $session
          * @return Authentication
          */
-        public function setSession(SessionInterface $session)
+        public function setSession(StrogeInterface $session)
         {
             $this->session = $session;
 
