@@ -14,6 +14,7 @@
     use Anonym\Components\Database\Base;
     use Anonym\Components\Session\Session;
     use Anonym\Components\Session\SessionInterface;
+    use Anonym\Facades\App;
 
     /**
      * Class Authentication
@@ -57,7 +58,7 @@
          * Sınıfı başlatır ve session ve cookie objelerini atar
          */
         public function __construct(){
-            $this->setSession( new Session());
+            $this->setSession( App::make('session.stroge'));
             $this->setCookie( new Cookie());
         }
 
