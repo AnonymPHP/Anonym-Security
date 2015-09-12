@@ -10,7 +10,6 @@
     namespace Anonym\Components\Security;
     use Anonym\Components\Security\Exception\VariableNotFoundException;
     use Anonym\Components\Session\SessionManager as Session;
-    use Anonym\Components\Session\SessionInterface;
     use Anonym\Components\HttpClient\Input;
     use Anonym\Components\Security\Exception\CsrfTokenMatchException;
     use Anonym\Components\Security\CsrfTokenInterface;
@@ -138,10 +137,10 @@
         }
 
         /**
-         * @param SessionInterface $session
+         * @param Session $session
          * @return CsrfToken
          */
-        public function setSession(SessionInterface $session)
+        public function setSession(Session $session)
         {
             $this->session = $session;
 
