@@ -9,7 +9,7 @@
 
     namespace Anonym\Components\Security;
     use Anonym\Components\Security\Exception\VariableNotFoundException;
-    use Anonym\Components\Session\Session;
+    use Anonym\Components\Session\SessionManager as Session;
     use Anonym\Components\Session\SessionInterface;
     use Anonym\Components\HttpClient\Input;
     use Anonym\Components\Security\Exception\CsrfTokenMatchException;
@@ -43,9 +43,10 @@
         /**
          * sınıfı başlatır
          */
-        public function __construct()
+        public function __construct(Session $sessionManager = null)
         {
             $this->useDefaultValues();
+            $this->setSession($sessionManager);
             $this->getSession()->set('tokenName', $this->getFormFieldName());
         }
 
@@ -86,7 +87,6 @@
          */
         private function useDefaultValues(){
             $this->setSecurityKeyGenerate( new SecurityKeyGenerator());
-            $this->setSession( new Session());
         }
 
         /**
