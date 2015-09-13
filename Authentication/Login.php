@@ -22,7 +22,7 @@ use Anonym\Components\Security\Security;
 class Login extends Authentication implements LoginInterface
 {
 
-    const LOGIN_LOGS_TABLE;
+    const LOGIN_LOGS_TABLE = 'logins';
 
     /**
      * Sınıfı başlatır ve tablo yapılandırmasını yapar
