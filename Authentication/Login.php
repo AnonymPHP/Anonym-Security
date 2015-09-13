@@ -11,6 +11,8 @@
 
     use Anonym\Components\Database\Base;
     use Anonym\Components\Database\Mode\Read;
+    use Anonym\Components\Database\Mode\Insert;
+
     use Anonym\Components\Security\Security;
 
     /**
@@ -19,6 +21,8 @@
      */
     class Login extends Authentication implements LoginInterface
     {
+
+        const LOGIN_LOGS_TABLE;
 
         /**
          * Sınıfı başlatır ve tablo yapılandırmasını yapar
@@ -74,13 +78,24 @@
                 if ($login->rowCount()) {
                     $login = (array)$login->fetch();
 
-                    $login['ip'] = Security::ip();
+                    // we will find user ip address
+                    // and add it to login informations
+                    $ip = Security::ip();
+
+                    // add client ip addres to login object
+                    $login['ip'] = $ip;
                     $login =  new LoginObject($login);
                     $this->getSession()->set(static::USER_SESSION, $login);
-
                     if($remember){
                         $this->getCookie()->set(static::USER_SESSION, serialize($login));
                     }
+
+                    $this->getDb()->insert(self::LOGIN_LOGS_TABLE,function(Insert $insert) use($ip, $username){
+                        $insert->set([
+                            'ip' => $ip,
+                            'username' => $username
+                        ]);
+                    });
 
                     return $login;
                 }
