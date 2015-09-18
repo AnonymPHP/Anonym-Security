@@ -87,6 +87,12 @@ class Guard extends Authentication
 
         $roleLogin = $login['role'];
 
-        return $roleLogin === $role;
+        if (is_string($role)) {
+            return $roleLogin === $role;
+        }elseif(is_array($role)){
+            return array_search($roleLogin, $role);
+        }
+
+        return false;
     }
 }
